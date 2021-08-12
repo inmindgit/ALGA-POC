@@ -145,7 +145,6 @@
 				00FF1DFFED4941D407B195C7 /* Pods-tokenExample-tokenExampleTests.debug.xcconfig */,
 				1258983011AED2C1311313B9 /* Pods-tokenExample-tokenExampleTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

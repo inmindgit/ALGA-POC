@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -24,9 +24,39 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import './shim';
+
+import Web3 from 'web3';
 
 
 const App = () => {
+  // const web3 = new Web3('http://localhost:7545');
+  // const web3 = new Web3('http://localhost:7545');
+  // const newWallet = web3.eth.accounts.wallet.create(1);
+  // const accounts = web3.eth.getAccounts();
+  // console.log('Web 3', web3.eth.accounts);
+  // const newAccount = newWallet[0];
+  // console.log(newAccount);
+  // const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+  // console.log('WEB 3', web3);
+  const [account, setAccount] = useState('');
+
+  const loadWeb3 = async() => {
+    try {
+      // const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+      const web3 = new Web3("http://localhost:7545"); //ganache
+      const accounts = await web3.eth.getAccounts();
+      console.log('account',accounts);
+      setAccount(accounts[0]);
+    } catch(error) {
+      console.log('error', error);
+    }
+  }
+
+  useEffect(() => {
+   loadWeb3();
+  }, [])
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -44,7 +74,7 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-            <Text>Test</Text>
+            <Text>Account: {account}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
