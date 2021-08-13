@@ -7,11 +7,14 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "./node_modules/.bin/rn-nodeify --install 'crypto,buffer,react-native-randombytes,vm,stream,http,https,os,url,net,fs' --hack"
   },
   "dependencies": {
     "@oceanprotocol/lib": "^0.17.1",
+    "@react-native-async-storage/async-storage": "^1.15.5",
     "@tradle/react-native-http": "^2.0.1",
+    "@walletconnect/react-native-dapp": "^1.5.4",
     "base-64": "^1.0.0",
     "browserify-zlib": "^0.1.4",
     "buffer": "^4.9.2",
@@ -27,6 +30,7 @@
     "react-native-level-fs": "^3.0.1",
     "react-native-os": "^1.2.6",
     "react-native-randombytes": "^3.6.1",
+    "react-native-svg": "9.6.4",
     "react-native-tcp": "^3.3.2",
     "react-native-udp": "^2.7.0",
     "readable-stream": "^1.0.33",
@@ -44,6 +48,7 @@
     "babel-jest": "^26.6.3",
     "eslint": "7.14.0",
     "jest": "^26.6.3",
+    "jetifier": "^2.0.0",
     "metro-react-native-babel-preset": "^0.64.0",
     "react-test-renderer": "17.0.1",
     "rn-nodeify": "^10.3.0"
